@@ -31,8 +31,7 @@ def calculateEntropy(dataSet):
         clasification = vector[-1]  #获取分类
         if not clasification not in ClassifyCount.keys():#如果分类暂时不在字典中，在字典中添加对应的值对
             ClassifyCount[clasification] = 0
-        else:
-            ClassifyCount[clasification] += 1         #计算出现次数
+        ClassifyCount[clasification] += 1         #计算出现次数
     shannonEntropy=0.0
     for key in ClassifyCount:
         probability=float(ClassifyCount[key]) / dataSet.shape[0]      #计算概率
@@ -85,8 +84,7 @@ def majority(classList):
     for i in classList:
         if not i in classificationCount.keys():
             classificationCount[i] = 0
-        else:
-            classificationCount[i] += 1
+        classificationCount[i] += 1
     sortedClassification = sorted(dict2list(classificationCount),key = operator.itemgetter(1),reverse = True)
     return sortedClassification[0][0]
 
